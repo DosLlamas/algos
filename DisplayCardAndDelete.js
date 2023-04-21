@@ -48,7 +48,7 @@ const DisplayCardAndDelete = () => {
         fetch('/api/v1/items/')
         .then(r => r.json())
         .then(data => setItems(data))
-    },[])
+    }, [])
 
     const handleDelete = (id) => {
         fetch(`/api/v1/item/${id}/`)
@@ -88,6 +88,18 @@ export Card;
 
 /*
 Important takeways from this problem:
-
-
+1. 
+Understand how to manage useEffect and useState to hold data from an API call
+2.
+Understand how to make GET and DELETE fetch requests to an API, 
+not forgetting the dependecy array for the useEffect.
+3.
+Understand the life-cycle of a react component to update
+state when an item is deleted from the DOM
+4. 
+Understand that you should renderJSX as a new array that has been mapped from your data
+so you're able to dynamically filter out deleted items
+5. 
+Understand how to use callback functions as events to pass data
+to and from a parent component
 */
