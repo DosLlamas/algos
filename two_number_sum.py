@@ -18,6 +18,15 @@ def twoNumberSum(array, targetSum):
                     return [num1, num2]
     return []
 
-    
+
+
+# Test case  
 # array = [3, 5, -4, 8, 11, 1, -1, 6]
 # target = 10
+
+"""
+1.
+This approach takes O(n**2) time because of the nested for loop
+2.
+Not sure of a more optimal answer yet
+"""
