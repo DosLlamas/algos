@@ -39,9 +39,9 @@ return results
 """
 from math import floor
 def get_score(str):
-    arr = str.split(".")
+    sections_of_binaries = str.split(".")
     counts_and_scores = []
-    for index, binary in enumerate(arr):
+    for index, binary in enumerate(sections_of_binaries):
         count = 0
         score = 0
         for char in binary:
