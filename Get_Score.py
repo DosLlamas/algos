@@ -52,8 +52,8 @@ def get_score(str):
     
     return counts_and_scores
 
-binary = '11111111.11111110.10101010.00000001'
-print(get_score(binary))
+# binary = '11111111.11111110.10101010.00000001'
+# print(get_score(binary))
 
 """"
 Tradeoffs:
@@ -66,3 +66,24 @@ and score in a dictionary all in one pass
 at O(n) time with the use of a dict.
 How can I do that?
 """
+def get_score2(str):
+    sections_of_binaries = str.split(".")
+    counts_and_scores = {}
+    for index, binary in enumerate(sections_of_binaries):
+        count = 0
+        score = 0
+        for char in binary:
+            if char == "1" :
+                count += 1
+                score = floor((2**(count-4)*8))
+        counts_and_scores[f'Binary#{index+1}'] = {
+            'count': count,
+            'score': score
+        }
+    
+    return counts_and_scores
+binary = '11111111.11111110.10101010.00000001'
+# print(get_score2(binary))
+print(get_score2(binary)['Binary#3'])
+result = get_score2(binary)
+print(result['Binary#3'])
