@@ -84,6 +84,7 @@ def get_score2(str):
     return counts_and_scores
 binary = '11111111.11111110.10101010.00000001'
 # print(get_score2(binary))
-print(get_score2(binary)['Binary#3'])
+# print(get_score2(binary)['Binary#3'])
 result = get_score2(binary)
-print(result['Binary#3'])
+print(result.items())
+# print(result['Binary#3'])
