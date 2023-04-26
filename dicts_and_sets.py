@@ -24,12 +24,14 @@
 
 list1 = [1, 2, 3, 4]
 list2 = [1, 2, 3, 4, 5]
+# difference = list(set(list1).symmetric_difference(set(list2)))[0]
+print(list(set(list1).symmetric_difference(set(list2)))[0])
 
-set1=set(list1)
-print(set1)
-set2=set(list2)
-print(set2)
-set3= set1.symmetric_difference(set2)
-final = list(set3)
-print(final[0])
-# print(list1.difference(list2))
+# set1=set(list1)
+# print(set1)
+# set2=set(list2)
+# print(set2)
+# set3= set1.symmetric_difference(set2)
+# final = list(set3)
+# print(final[0])
+# # print(list1.difference(list2))
