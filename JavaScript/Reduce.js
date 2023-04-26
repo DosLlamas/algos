@@ -1,1 +1,1 @@
-// Practice with the built-in reduce() function(I'ts amazing)
+// Practice with the built-in reduce() function(It's amazing)
