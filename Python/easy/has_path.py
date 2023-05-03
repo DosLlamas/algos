@@ -24,7 +24,6 @@ graph = {
 
 # def has_path(graph, src, dst):
 #     if src == dst : return True
-
 #     for neighbor in graph[src] :
 #         if has_path(graph, neighbor, dst) == True :
 #             return True
@@ -51,17 +50,16 @@ add next queue
 return False if no path found
 """
 
-def has_path(graph, src, dst):
-    queue = [src]
-    while len(queue) > 0 :
-        # pop() in python is the same as shift() in JS
-        current = queue.pop(0)
-        if current == dst : return True
+# def has_path(graph, src, dst):
+#     queue = [src]
+#     while len(queue) > 0 :
+#         # pop() in python is the same as shift() in JS
+#         current = queue.pop(0)
+#         if current == dst : return True
+#         for neighbor in graph[current] :
+#             # append() in python is the same as push() in JS
+#             queue.append(neighbor)
+#     return False
 
-        for neighbor in graph[current] :
-            # append() in python is the same as push() in JS
-            queue.append(neighbor)
-    return False
-
-print(has_path(graph, 'f', 'k'))
+# print(has_path(graph, 'f', 'k'))
         
