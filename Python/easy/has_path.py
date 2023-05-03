@@ -62,4 +62,11 @@ return False if no path found
 #     return False
 
 # print(has_path(graph, 'f', 'k'))
+
+"""
+Tradeoffs:
+Between DFS and BFS in this problem what are the tradeoffs?
+Or even for DFS alone, can I use iteration instead of recursion?
+Time/Space complexity
+"""
         
