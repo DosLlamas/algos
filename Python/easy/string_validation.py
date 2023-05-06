@@ -2,13 +2,30 @@
 These are the coding questions I was asked in
 a Data Analyst interview.
 
-1.
+Question 1.
 Given string = "AalksndfoiAIASpfihasdlfoAWLOIRHEsdfd",
 count how many vowels appear, upper and lowercase
 
+Approach:
+-O(n) time
+-O(n) space at worst
+Steps:
+1.
+set count = 0
 2.
+increase count per vowel
+3.
+return count
+
+Tradeoffs:
+Is there a way to check for vowels without 
+passing through the entire string? A binary search 
+instead of simple search? 
+
+Question 2.
 Write a function that validates an email, return true
 if valid, false if not valid
+
 """
 
 def count_vowels(str):
