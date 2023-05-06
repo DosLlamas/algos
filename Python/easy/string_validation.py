@@ -23,7 +23,7 @@ passing through the entire string? A binary search
 instead of simple search? 
 
 Question 2.
-Write a function that validates an email, return true
+Using regex, write a function that validates an email, return true
 if valid, false if not valid
 
 """
