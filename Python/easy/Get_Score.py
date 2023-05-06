@@ -58,7 +58,7 @@ def get_score(str):
 """"
 Tradeoffs:
 With this approach, the time complexity is
-O(n) + O(m**2) due to the nested for loops and need
+O(n**2) due to the nested for loops and need
 to iterate through the string once to split it 
 into a sequence.
 I'm thinking there is a way to get the count
