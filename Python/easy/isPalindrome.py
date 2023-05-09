@@ -46,7 +46,9 @@ any more variables
 """
 
 def isPalindrome2(str):
-    if str == str[::-1] :
+    # if str == str[::-1] :
+    reverse = str.reverse()
+    if str == reverse:
         return "YES"
     else:
         return "NO"

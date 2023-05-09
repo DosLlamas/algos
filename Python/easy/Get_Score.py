@@ -88,3 +88,7 @@ binary = '11111111.11111110.10101010.00000001'
 result = get_score2(binary)
 print(result.items())
 # print(result['Binary#3'])
+
+def get_score3(str):
+    binary_sections = str.split(".")
+    

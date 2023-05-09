@@ -24,13 +24,13 @@ O(1) space
 
 Steps:
 1.
-if len(pices) is 0, return 0 profit
+check len(prices)
 2.
-Declare buy_stock=0, sell_stock=1 and max_prof=0 variables
+Assign buy_stock=0, sell_stock=1 and max_prof=0 variables
 3.
 Iterate through through prices until sell stock reaches length
 4.
-set current_price to selling stock - buying stock
+Set current_price to selling stock - buying stock
 5.
 if buy is less than sell, find max between last max_profit and current profit.
 else, set buy to sell
@@ -57,9 +57,13 @@ class Solution(object):
 
 test_prices = [7, 1, 5, 3, 6, 4]
 test_prices2 = [7, 6, 4, 3, 1]
+test_prices3 = []
+test_prices4 = [7, 1, 1, 1, 1, 1]
 max_profit = Solution()
 print(max_profit.maxProfit(test_prices))
 print(max_profit.maxProfit(test_prices2))
+print(max_profit.maxProfit(test_prices3))
+print(max_profit.maxProfit(test_prices4))
 
 
 
