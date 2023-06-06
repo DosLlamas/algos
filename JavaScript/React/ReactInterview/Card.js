@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Card = ({ item, handleDelete }) => {
+const Card = ({ item, key, handleDelete }) => {
   return (
     <div style={{border: "1px solid red"}}>
         <h2>{item.name}</h2>
@@ -9,7 +9,7 @@ const Card = ({ item, handleDelete }) => {
         */}
         <img src={item["image-url"]} />
         <p>{item.description}</p>
-        <button onClick={() => handleDelete(item.id)}>Delete card</button>
+        <button onClick={() => handleDelete(key)}>Delete card</button>
     </div>
   )
 }

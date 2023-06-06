@@ -1,15 +1,14 @@
-# Check if a string is a palindrome, return "YES" or "NO"
+# Check if a string is a palindrome, return True or False
 def isPalindrome(string):
     start = 0
     end = len(string) - 1
     while start < end :
         if string[start] != string[end] :
-            return "NO"
+            return False
         start += 1
         end -= 1
 
-    return "YES"
-
+    return True
 
 # test1 = "tacocat"
 # test2 = "level"
@@ -46,12 +45,12 @@ any more variables
 """
 
 def isPalindrome2(str):
-    # if str == str[::-1] :
-    reverse = str.reverse()
-    if str == reverse:
-        return "YES"
-    else:
-        return "NO"
+    return str == str[::-1] 
+    # reverse = str.reverse()
+    # if str == reverse:
+    #     return "YES"
+    # else:
+    #     return "NO"
     
 print(isPalindrome2(inp))
 

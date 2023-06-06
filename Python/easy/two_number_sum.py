@@ -10,7 +10,7 @@
 # the target sum.
 
 def twoNumberSum(array, targetSum):
-
+    
     for num1 in array:
         for num2 in array:
             if num1 != num2 :
@@ -29,4 +29,9 @@ def twoNumberSum(array, targetSum):
 This approach takes O(n**2) time because of the nested for loop
 2.
 Not sure of a more optimal answer yet
+
+Appraoch 2:
+
+Steps:
+
 """

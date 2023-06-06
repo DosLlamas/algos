@@ -58,7 +58,7 @@ const DisplayCardAndDelete = () => {
     }
     const renderCards = items.map(item => {
         return (
-            <Card item={item} handleDelete={handleDelete}/>
+            <Card item={item} key={item.id} handleDelete={handleDelete}/>
         )
     })
     return (
