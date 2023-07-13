@@ -15,7 +15,15 @@ linkedList = 1 -> 1 -> 3 -> 4 -> 4 -> 4 -> 5 -> 6 -> 6
 Sample Output
 1 -> 3 -> 4 -> 5 -> 6 
 
-Approach 
+Approach:
+
+Steps:
+1.
+Check if current node.value equals node.next.value
+2.
+If yes, current node.value = node.next.next
+3.
+return result
 '''
 
 # This is an input class. Do not edit.
@@ -24,7 +32,23 @@ class LinkedList:
         self.value = value
         self.next = None
 
-def removeDuplicatesFromLinkedList(linkedList):
-    # Write your code here.
+# sample_input = LinkedList({1:{1:{3:{4:{4:{4:{5:{6:{6:None}}}}}}}}})
+# # print(sample_input)
+
+# def removeDuplicatesFromLinkedList(linkedList):
+#     # Write your code here.
+#     while linkedList.value == linkedList.next.value:
+#         linkedList = linkedList.next.next
     
-    return None
+#     return linkedList
+
+# print(removeDuplicatesFromLinkedList(sample_input))
+
+# I completely failed that first attempt. I believe my idea works 
+# but I don't know how to implement this yet
+def removeDuplicatesFromLinkedList2(linkedList):
+    # Write your code here.
+    while linkedList.value == linkedList.next.value:
+        linkedList = linkedList.next.next
+    
+    return linkedList

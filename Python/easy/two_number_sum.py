@@ -33,5 +33,30 @@ Not sure of a more optimal answer yet
 Appraoch 2:
 
 Steps:
+1.
+copy list to a set
+2.
+iterate through list
+3.
+check if current num - targetSum equals anything in the set
+4.
+if yes, return those, if no return emptpy list
 
+O(n) time | O(n) space
 """
+
+def twoNumberSum2(array, targetSum):
+    storage = set()
+    for first_num in array:
+        storage.update({first_num})
+        second_num = targetSum - first_num
+        if second_num in storage and not second_num is first_num:
+            return [first_num, second_num]
+    return []
+
+arr = [3, 5, -4, 8, 11, 1, -1, 6]
+target = 10
+target2 = 12
+
+
+print(twoNumberSum2(arr, target2))

@@ -38,8 +38,7 @@ def count_vowels(str):
 print(count_vowels("AalksndfoiAIASpfihasdlfoAWLOIRHEsdfd"))
 
 def is_valid_email(user_email):
-    if not user_email :
-        return False
+    if not user_email: return False
     username, domain_name = user_email.split("@")
     if username.endswith(".") or username.startswith(".") :
         return False
