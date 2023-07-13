@@ -67,8 +67,6 @@ const DisplayCardAndDelete = () => {
 }
 export default DisplayCardAndDelete;
 
-
-
 /*
 Important takeways from this problem:
 1. 
@@ -132,7 +130,10 @@ function fetchItems(){
 
             const deleteBtn = document.createElement('button')
             deleteBtn.innerText = "Delete"
-            deleteBtn.onclick = () => deleteCardHandler(item.id)
+            // deleteBtn.onclick = () => deleteCardHandler(item.id)
+            deleteBtn.addEventListener('click', () => {
+                deleteCardHandler(item.id)
+            })
 
             card.append(name)
             card.append(img)
@@ -146,7 +147,9 @@ function fetchItems(){
     .catch(error => {
         console.log("Item fetch error: ", error)
     })
+
 }
+fetchItems()
 
 /*
 Part 2:
