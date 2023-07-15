@@ -167,4 +167,51 @@ function getProductOfArray(arr){
     if(arr.length === 0) return 0
     return arr.reduce((totalProduct, element) => totalProduct * element, 1)
 }
-console.log(getProductOfArray([2, 3, 4, 5]))
+// console.log(getProductOfArray([2, 3, 4, 5]))
+
+
+/*
+Question 6: 
+Write a function that takes an array of objects representing expenses, where
+each object contains the expense amount and category. The function should calculate
+the total expense amount for a specific category using the reduce() method and return the result.
+
+Example Input:
+
+const expenses = [
+  { category: "Food", amount: 50 },
+  { category: "Transportation", amount: 30 },
+  { category: "Food", amount: 20 },
+  { category: "Entertainment", amount: 40 },
+  { category: "Food", amount: 10 },
+];
+
+Example Output:
+
+const totalFoodExpense = calculateTotalExpense(expenses, "Food");
+console.log(totalFoodExpense); // Output: 80
+
+Approach:
+O(n) time | O(1) space
+
+Steps:
+1. Iterate through array, start accumulator at 0
+2. If input category exists in object, add amount to accumulator
+3. return result
+*/
+
+function calculateTotalExpense(arr, specificCategory){
+    return arr.reduce((totalAmount, expense) => (
+        expense.category === specificCategory ? totalAmount + expense.amount : totalAmount
+    ), 0)
+}
+const expenses = [
+    { category: "Food", amount: 50 },
+    { category: "Transportation", amount: 30 },
+    { category: "Food", amount: 20 },
+    { category: "Entertainment", amount: 40 },
+    { category: "Food", amount: 10 },
+  ];
+// console.log(calculateTotalExpense(expenses, "Food")); // Output: 80
+
+
