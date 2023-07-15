@@ -1,3 +1,16 @@
+// This is the reduce function
+function thisIsReduce(array, combine, start) {
+    let current = start;
+    for (let element of array) {
+      current = combine(current, element);
+    }
+    return current;
+}
+/*
+The start value can be any data type. You could accumulate multiple arrays or objects together to result with a transformed object.
+Or you could iterate through an array and accumalate a number or string.
+*/
+
 /* 
 Question 1:
 
@@ -49,14 +62,8 @@ Steps:
 2. Divide by the array.length
 */
 
-// This is the reduce function
-// function reduce(array, combine, start) {
-//     let current = start;
-//     for (let element of array) {
-//       current = combine(current, element);
-//     }
-//     return current;
-// }
+
+
 function getAverageAge(arr){
     return arr.reduce((sum, person) => sum + person.age, 0) / arr.length
 }
