@@ -221,4 +221,79 @@ const expenses = [
   ];
 // console.log(calculateTotalExpense(expenses, "Food")); // Output: 80
 
+/*
+Question 7:
+Write a function that takes an array of book objects as input, where each
+object represents a book and contains properties like title, author, and 
+rating. The function should transform the input array into a new array of
+book objects, where each object contains only the title and author properties
+from the original book object.
+
+Example Input:
+
+const books = [
+  { title: "The Great Gatsby", author: "F. Scott Fitzgerald", rating: 4.2 },
+  { title: "To Kill a Mockingbird", author: "Harper Lee", rating: 4.5 },
+  { title: "Pride and Prejudice", author: "Jane Austen", rating: 4.25 }
+];
+
+Example Output:
+
+const simplifiedBooks = simplifyBookList(books);
+console.log(simplifiedBooks);
+// Output:
+// [
+//   { title: "The Great Gatsby", author: "F. Scott Fitzgerald" },
+//   { title: "To Kill a Mockingbird", author: "Harper Lee" },
+//   { title: "Pride and Prejudice", author: "Jane Austen" }
+// ]
+
+
+Apprach:
+O(n) time | O(n) space
+
+Steps:
+1. Start accumulator as empty array
+2. Iterate through input array, joining each element to the new array but only the title and author 
+3. return result
+
+*/
+
+function simplifyBookList(arr){
+    return arr.reduce((newList, book) => [...newList, {title: book.title, author:book.author}], [])
+}
+const books = [
+    { title: "The Great Gatsby", author: "F. Scott Fitzgerald", rating: 4.2 },
+    { title: "To Kill a Mockingbird", author: "Harper Lee", rating: 4.5 },
+    { title: "Pride and Prejudice", author: "Jane Austen", rating: 4.25 }
+];
+// console.log(simplifyBookList(books))
+
+/*
+Question 8:
+Write a function that takes an array of numbers as input and returns an object that contains
+the count of each unique number in the array using the reduce() method. The unique numbers
+should serve as keys in the object, and their counts should be the corresponding values.
+
+Example Input: [1, 2, 3, 2, 1, 3, 4, 5, 4, 2]
+Example Output: {1: 2, 2: 3, 3: 2, 4: 2, 5: 1}
+
+Approach:
+O(n) time | O(n) space
+
+Steps:
+1. Start accumulator from empty object
+2. Iterate through input array, adding the count value to each unique number key
+3. return the resulting object
+
+*/
+
+function countUniques(arr) {
+    return arr.reduce((uniqueCount, number) => {
+        uniqueCount[number] ? uniqueCount[number] += 1 : uniqueCount[number] = 1
+        return uniqueCount
+    }, {})
+}
+console.log(countUniques([1, 2, 3, 2, 1, 3, 4, 5, 4, 2]))
+
 
