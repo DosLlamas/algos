@@ -54,3 +54,5 @@ def isPalindrome2(str):
     
 print(isPalindrome2(inp))
 
+
+
