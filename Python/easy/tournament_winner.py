@@ -33,6 +33,127 @@ results = [0, 0, 1]
 
 
 Sample output:
-
 "Python"
+
+
+Steps:
+1. 
+create dict to hold scores for teams
+2.
+iterate through results
+3.
+for each, get the corresponding index from competions, then add points to appropiate team
+4.
+return team with most points
+
+Complexity:
+O(n + m) time | O(m) space where m is number of teams in scores dict
+"""
+# My finished approach
+# def tournamentWinner(competitions, results):
+#     scores = {}
+#     for index, result in enumerate(results):
+#         if result == 1:
+#             scores[competitions[index][0]] = scores.get(competitions[index][0], 0) + 3
+#         else:
+#             scores[competitions[index][1]] = scores.get(competitions[index][1], 0) + 3
+    
+#     return max(scores, key=scores.get)
+
+
+# Chatgpt's more efficient answer: O(n) time | O(m) space where m is number of unique teams in scores dict
+def tournamentWinner(competitions, results):
+    scores = dict()
+    current_leader = None
+    max_score = 0
+
+    for index, result in enumerate(results):
+        if result == 1:
+            winning_team = competitions[index][0] 
+        else:
+            winning_team = competitions[index][1]
+        scores[winning_team] = scores.get(winning_team, 0) + 3
+
+        if scores[winning_team] > max_score:
+            max_score = scores[winning_team]
+            current_leader = winning_team
+
+    return current_leader
+
+
+competitions = [
+    ["HTML", "C#"],
+    ["C#", "Python"],
+    ["Python", "HTML"],
+]
+results = [0, 0, 1]
+
+print(tournamentWinner(competitions, results))
+
+
+
+"""
+Abstractions of What I learned:
+
+1) Using built-in dictionary methods
+    I learned the get() built in method before but forgot how to use
+    it for this problem. 
+
+    It take in a dictionary and key value and default value, like so:
+    dictionary.get(key, default_value)
+
+    The default value is optional and the method will return None if no key is found.
+    In this problem this is used to avoid getting and error when adding a team
+    to the scores dictionary. 
+
+    There's other built-in dictionary methods in python, e.g.:
+    pop(): Returns the value associated with a specified key and removes 
+    that key-value pair from the dictionary. If the key is not found, the method returns a default value.
+
+    clear(): empties out dict
+
+    items(): Returns all the keys in a dictionary and their associated values as a sequence of tuples
+
+    keys(): Returns all the keys in a dictionary as a sequence of tuples.
+
+    values(): Returns all the values in the dictionary as a sequence of tuples.
+
+    popitem(): Returns, as a tuple, the key-value pair 
+    that was last added to the dictionary. The method also 
+    removes the key-value pair from the dictionary.
+
+2) Using elements from a list or keys/values from an object to access another object's keys
+    A line like this to set the value of a key that may or may not have already been 
+    declared, but using another object or list as the value being accessed:
+    scores[competitions[index][0]] = scores.get(competitions[index][0], 0) + 3
+
+3) The concept of having a current_leader and max_score 
+    The idea can be applied to various problems, especially when 
+    you need to keep track of the maximum or minimum value encountered so 
+    far while iterating through a list or processing a sequence of elements. 
+
+    e.g.:
+    Finding the Maximum/Minimum Element in a List:
+    Initialize max_element and min_element to the first element of the list.
+    Iterate through the list, and for each element, update max_element and 
+    min_element if the current element is greater than max_element or smaller
+    than min_element, respectively. 
+
+    Finding the Most Frequent Element in a List:
+    Use a dictionary to store the count of each element in the list.
+    Initialize current_leader and max_count to None and 0, respectively.
+    Iterate through the list, updating the counts in the dictionary.
+    Keep track of the element with the highest count (current_leader) and its count (max_count) during the iteration.
+
+    Tracking Progress in a Loop:
+    Suppose you have a loop that performs some operation on a list of elements, 
+    and you want to track the progress by showing the element that has the maximum 
+    score or progress so far. Initialize current_leader and max_score to None and 0, respectively.
+    During each iteration, update current_leader and max_score based on the progress of the current element.
+
+    Finding the Most Profitable Investment:
+    Given a list of investments with their corresponding profits, you can 
+    find the investment that yields the highest profit using current_leader and max_profit.
+    Initialize current_leader and max_profit to None and 0, respectively.
+    Iterate through the investments, updating current_leader and max_profit based on the profit of the current investment.
 """

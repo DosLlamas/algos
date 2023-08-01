@@ -1,1 +1,0 @@
-totalExpense + currentExpense.amount :
