@@ -26,4 +26,4 @@ def isValidSubsequence(array, sequence):
             sequence_pointer += 1
     return sequence_pointer == len(sequence)
             
-isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10],  [1, 6, -1, 10])
+print(isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10],  [1, 6, -1, 10]))
