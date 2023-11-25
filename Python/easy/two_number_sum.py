@@ -10,7 +10,6 @@
 # the target sum.
 
 def twoNumberSum(array, targetSum):
-    
     for num1 in array:
         for num2 in array:
             if num1 != num2 :

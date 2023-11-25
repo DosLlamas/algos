@@ -19,10 +19,10 @@ Approach O(n) time O(1) space
 
 def isValidSubsequence(array, sequence):
     sequence_pointer = 0
-    for i in array:
+    for num in array:
         if sequence_pointer == len(sequence):
             return True
-        if sequence[sequence_pointer] == i:
+        if sequence[sequence_pointer] == num:
             sequence_pointer += 1
     return sequence_pointer == len(sequence)
             

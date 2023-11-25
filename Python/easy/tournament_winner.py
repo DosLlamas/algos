@@ -62,33 +62,33 @@ O(n + m) time | O(m) space where m is number of teams in scores dict
 
 
 # Chatgpt's more efficient answer: O(n) time | O(m) space where m is number of unique teams in scores dict
-def tournamentWinner(competitions, results):
-    scores = dict()
-    current_leader = None
-    max_score = 0
+# def tournamentWinner(competitions, results):
+#     scores = dict()
+#     current_leader = None
+#     max_score = 0
 
-    for index, result in enumerate(results):
-        if result == 1:
-            winning_team = competitions[index][0] 
-        else:
-            winning_team = competitions[index][1]
-        scores[winning_team] = scores.get(winning_team, 0) + 3
+#     for index, result in enumerate(results):
+#         if result == 1:
+#             winning_team = competitions[index][0] 
+#         else:
+#             winning_team = competitions[index][1]
+#         scores[winning_team] = scores.get(winning_team, 0) + 3
 
-        if scores[winning_team] > max_score:
-            max_score = scores[winning_team]
-            current_leader = winning_team
+#         if scores[winning_team] > max_score:
+#             max_score = scores[winning_team]
+#             current_leader = winning_team
 
-    return current_leader
+#     return current_leader
 
 
-competitions = [
-    ["HTML", "C#"],
-    ["C#", "Python"],
-    ["Python", "HTML"],
-]
-results = [0, 0, 1]
+# competitions = [
+#     ["HTML", "C#"],
+#     ["C#", "Python"],
+#     ["Python", "HTML"],
+# ]
+# results = [0, 0, 1]
 
-print(tournamentWinner(competitions, results))
+# print(tournamentWinner(competitions, results))
 
 
 
@@ -157,3 +157,103 @@ Abstractions of What I learned:
     Initialize current_leader and max_profit to None and 0, respectively.
     Iterate through the investments, updating current_leader and max_profit based on the profit of the current investment.
 """
+
+"""
+There's an algorithms tournament taking place in which teams of programmers
+compete against each other to solve algorithmic problems as fast as possible.
+Teams compete in a round robin, where each team faces off against all other
+teams. Only two teams compete against each other at a time, and for each
+competition, one team is designated the home team, while the other team is the
+away team. In each competition there's always one winner and one loser; there
+are no ties. A team receives 3 points if it wins and 0 points if it loses. The
+winner of the tournament is the team that receives the most amount of points.
+
+Given an array of pairs representing the teams that have competed against each
+other and an array containing the results of each competition, write a
+function that returns the winner of the tournament. The input arrays are named
+"competitions" and "results". The competitions array has elements in the form of
+"[homeTeam, awayTeam]", where each team is a string of at most 30 characters
+respresting the name of the team. The "results" array contains info
+about the winner of each corresponding competion in the "competitions" array. 
+Specifically, results[i] denotes the winner of the competitions[i], where a "1"
+in results array means that the home team in the corresponding competition won 
+and a "0" means that the away team won.
+
+It's guaranteed that exactly one team will win the tournament and that each
+team will compete against all other teams exactly once. It's also guaranteed
+that the tournament will always have at least two teams.
+
+Sample input:
+competitions = [
+    ["HTML", "C#"],
+    ["C#", "Python"],
+    ["Python", "HTML"],
+]
+results = [0, 0, 1]
+
+
+Sample output:
+"Python"
+
+New attempt - Nov. 19th, 2023
+
+-Input: results and competitions array.
+-Output: a string for the winning team
+
+what we know:
+-we want to return the team with the most points
+-there are no ties
+-a win scores 3 points a loss scores 0 points
+-a 1 means first time won, a 0 means second team won
+
+what we don't know:
+-loop? yes
+-dict? yes
+-counter?
+
+
+steps:
+1. 
+declare dict to keep track of scores, and a variable to keep track of winner
+2.
+iterate results array adding the scores to the teams in the dict.
+on each iteration, assign a winning team and compare it to the current winner
+3.
+return
+winner
+"""
+
+
+def tournamentWinner(competitions, results):
+    team_scores = dict()
+    tourn_winner = ""
+    if results[0] == 0:
+        tourn_winner = competitions[0][1]
+    elif results[0] == 1:
+        tourn_winner = competitions[0][0]
+
+    for index, result in enumerate(results):
+        current_winner = ""
+        if result == 0:
+            current_winner = competitions[index][1]
+        else:
+            current_winner = competitions[index][0]
+
+        team_scores[current_winner] = team_scores.get(current_winner, 0) + 3
+        if team_scores[current_winner] > team_scores[tourn_winner]:
+            tourn_winner = current_winner
+
+    return {"winner": tourn_winner, "score": team_scores[tourn_winner]}
+        
+
+competitions = [
+    ["HTML", "C#"],
+    ["C#", "Python"],
+    ["Python", "HTML"],
+]
+results = [0, 0, 1]
+
+output = tournamentWinner(competitions, results)
+print(output)
+print("Winner:", output["winner"])
+print("Their score:", output["score"])
