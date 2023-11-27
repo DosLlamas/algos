@@ -101,8 +101,8 @@ class Solution(object):
 
         buying_stock_pointer, max_profit = 0, 0
         for selling_stock_pointer in range(1, len(prices)):
-            current_profit = prices[selling_stock_pointer] - prices[buying_stock_pointer]
             if prices[buying_stock_pointer] < prices[selling_stock_pointer]:
+                current_profit = prices[selling_stock_pointer] - prices[buying_stock_pointer]
                 max_profit = max(current_profit, max_profit)
             else:
                 buying_stock_pointer = selling_stock_pointer
