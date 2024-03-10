@@ -6,11 +6,13 @@ There is a string of binary numbers:
 For this string, count the number of 
 total ones and keep a score like so:
 
-1 - 1
-2 - 2
-3 - 4 
-4 - 8
-5 - 16
+0-0
+1-1
+2-2
+3-4
+4-8
+5-16
+...
 
 Return the score
 and 1 count for each set
