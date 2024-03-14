@@ -37,7 +37,7 @@ fetch delete request to api for that item.id
 */
 
 
-import React, { useEffect, useState} from "react"
+import React, {useEffect, useState} from "react"
 import Card from "./Card.js"
 
 

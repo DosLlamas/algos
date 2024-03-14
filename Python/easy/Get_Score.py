@@ -77,7 +77,7 @@ def get_score2(str):
         for char in binary:
             if char == "1" :
                 count += 1
-                score = floor((2**(count-4)*8))
+        score = floor((2**(count-4)*8))
         counts_and_scores[f'Binary#{index+1}'] = {
             'count': count,
             'score': score
@@ -88,9 +88,6 @@ binary = '11111111.11111110.10101010.00000001'
 # print(get_score2(binary))
 # print(get_score2(binary)['Binary#3'])
 result = get_score2(binary)
-print(result.items())
+print(result)
 # print(result['Binary#3'])
-
-def get_score3(str):
-    binary_sections = str.split(".")
     
