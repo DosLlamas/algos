@@ -2,6 +2,8 @@ test1 = [5, 65, 4, 8, 13, 27]
 
 test2 = [5, 65, 4, 8, 13, 27,12,]
 
+
+
 def findUnique(arr1, arr2):
   for i in range(len(arr1)):
     if arr1[i] != arr2[i]:

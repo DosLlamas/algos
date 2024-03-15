@@ -109,6 +109,7 @@ class Solution(object):
                 
         return max_profit
 
+
 test_prices = [7, 1, 5, 3, 6, 4]
 test_prices2 = [7, 6, 4, 3, 1]
 test_prices3 = []
