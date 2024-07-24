@@ -27,4 +27,24 @@ class Solution(object):
         """
         :type prices: List[int]
         :rtype: int
+        - I can buy and sell stocks multiple times
+        - I'll need 2 pointers to compare stocks
+        - I'll need a variable to track total profit
+
+        1. Delcare l and r pointer and profit = 0
+        2. while loop, while r hasn't reached the end
+        if prices[r] - prices[l] > 0, then profit += prices[r] - prices[l], and l = r
+        r ++ everytime
+        3. return profit
         """
+        l, r, total_profit = 0, 1, 0
+        while r < len(prices):
+            profit = prices[r] - prices[l]
+            if profit > 0: 
+                total_profit += profit
+            l += 1
+            r += 1
+        return total_profit
+    
+res = Solution()
+print("Ans:", res.maxProfit([7,1,5,3,6,4]))
