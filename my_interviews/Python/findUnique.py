@@ -3,7 +3,6 @@ test1 = [5, 65, 4, 8, 13, 27]
 test2 = [5, 65, 4, 8, 13, 27,12,]
 
 
-
 def findUnique(arr1, arr2):
   for i in range(len(arr1)):
     if arr1[i] != arr2[i]:
@@ -26,3 +25,9 @@ def find_unique_number(list1, list2):
     return result
 
 print(find_unique_number(test1, test2))
+
+
+def find_unique2(test1, test2):
+    return sum(test2) - sum(test1)
+
+print(find_unique2(test1, test2))
