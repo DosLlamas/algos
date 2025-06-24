@@ -11,7 +11,6 @@ What data structure would you use to develop a function similar to Google's brow
 forward and back page button? How would you keep track of the previous pages while 
 blocking the option to hit "forward" on the forward most page.
  """
-
 # 1.
 from collections import defaultdict
 def find_unique_string(file: str) -> str:
@@ -20,11 +19,11 @@ def find_unique_string(file: str) -> str:
         word = ''
         while True:
             char = f.read(1)
-            if not char:  # End of file
-                if word:  # Add the last word
+            if not char: 
+                if word:  
                     count[word] += 1
                 break
-            if char.isspace():  # Word delimiter
+            if char.isspace():  
                 if word:
                     count[word] += 1
                     word = ''

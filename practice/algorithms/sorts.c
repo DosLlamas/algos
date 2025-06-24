@@ -125,22 +125,56 @@ void swap(int* a, int* b) {
     *a = *b;
     *b = temp;
 }
-int partition(int arr[], int low, int high) {
-    int pivot = arr[high];  // Choosing the last element as the pivot
-    int i = (low - 1);      // Index of smaller element
-    for (int j = low; j <= high - 1; j++) {
-        // If the current element is smaller than or equal to the pivot
-        if (arr[j] <= pivot) {
-            i++;    // Increment index of smaller element
+// First element as pivot using two while loops
+int partitionFirst(int arr[], int low, int high) {
+    int pivot = arr[low]; // Pivot
+    int i = low + 1;      // Index of smaller element
+    int j = high;         // Index of larger element
+    while (i <= j) {
+        while (i <= high && arr[i] <= pivot) i++;
+        while (j >= low && arr[j] > pivot) j--;
+        if (i < j) 
+            swap(&arr[i], &arr[j]);
+        else break;
+    }
+    swap(&arr[low], &arr[j]); // Put pivot in correct position
+    return j; // Return pivot index
+}
+// Middle element as pivot
+int partitionMiddle(int arr[], int low, int high) {
+    int pivot = arr[low + (high - low) / 2]; // Pivot
+    int i = low - 1;      // Index of smaller element
+    int j = high + 1;     // Index of larger element
+    while (1) {
+        do {
+            i++;
+        } while (arr[i] < pivot);
+        do {
+            j--;
+        } while (arr[j] > pivot);
+        if (i >= j) {
+            return j;
+        }
+        swap(&arr[i], &arr[j]);
+    }
+}
+// Last element as pivot using two while loops
+int partitionLast(int arr[], int low, int high) {
+    int pivot = arr[high]; // Pivot
+    int i = low - 1;       // Index of smaller element
+    for (int j = low; j < high; j++) {
+        if (arr[j] < pivot) {
+            i++;
             swap(&arr[i], &arr[j]);
         }
     }
-    swap(&arr[i + 1], &arr[high]);  // Place pivot in the correct position
-    return (i + 1);
+    swap(&arr[i + 1], &arr[high]); // Put pivot in correct position
+    return i + 1; // Return pivot index
 }
+
 void quickSort(int arr[], int low, int high) {
     if (low < high) {
-        int pi = partition(arr, low, high);
+        int pi = partitionMiddle(arr, low, high);
         // Recursively apply quicksort to each partition
         quickSort(arr, low, pi - 1);  
         quickSort(arr, pi + 1, high);
