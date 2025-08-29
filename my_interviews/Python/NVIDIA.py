@@ -9,8 +9,8 @@ Example:
 2.
 What data structure would you use to develop a function similar to Google's browser
 forward and back page button? How would you keep track of the previous pages while 
-blocking the option to hit "forward" on the forward most page.
- """
+blocking the option to hit "forward" on the forward most page?
+"""
 # 1.
 from collections import defaultdict
 def find_unique_string(file: str) -> str:
@@ -23,7 +23,7 @@ def find_unique_string(file: str) -> str:
                 if word:  
                     count[word] += 1
                 break
-            if char.isspace():  
+            if char == ' ':  
                 if word:
                     count[word] += 1
                     word = ''
@@ -43,7 +43,7 @@ def find_unique_string(file: str) -> str:
                     word = ''
             else:
                 word += char
-print(find_unique_string('words.txt'))
+print(find_unique_string("words.txt"))
 
 # 2.
 """
