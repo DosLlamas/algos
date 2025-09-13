@@ -1,5 +1,2 @@
-languages = ["Python", "Java", "Go", "JavaScript", "Python", "Ruby", "Scala"]
-languages2 = [*languages]
-languages2.append("Perl")
-print(languages)
-print(languages2)
+print(True if 0.1 + 0.2 == 0.3 else False)
+print(0.1 + 0.2)
